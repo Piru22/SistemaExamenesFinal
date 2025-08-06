@@ -96,7 +96,7 @@ namespace SistemaExamenes
                 return;
             }
 
-            /* -Guid sirve para generar identificadores unicos. En este caso genera el codigo, lo convierte a string y 
+            /* -Guid sirve para generar los id. En este caso genera el codigo, lo convierte a string y 
             con  Substring(0, 8) lo limita a 8 caracteres */
             string examenId = Guid.NewGuid().ToString().Substring(0, 8); lastExamenId = examenId;
             string universidad = txtUniversidad.Text.Trim();
