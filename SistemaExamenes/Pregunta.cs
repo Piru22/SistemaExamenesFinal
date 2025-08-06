@@ -38,9 +38,7 @@ namespace SistemaExamenes
             {
                 PreguntaId = int.TryParse(parts[0], out var id) ? id : 0,
                 Texto = parts[1],
-                Opciones = parts[2].Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
-                                           .Select(o => o.Trim())
-                                           .ToList(),
+                Opciones = parts[2].Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(o => o.Trim()).ToList(),
                 RespuestaCorrecta = parts[3],
                 Asignatura = parts[4],
                 Unidad = parts[5],

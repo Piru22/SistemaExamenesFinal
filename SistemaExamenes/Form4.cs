@@ -88,10 +88,7 @@ namespace SistemaExamenes
 
             // Mostrar resumen y feedback detallado en el MessageBox
             MessageBox.Show(
-                "Examen corregido. Resultado:\n\n" +
-                resumen +
-                "\nPreguntas:\n" +
-                feedbackDetalle,
+                "Examen corregido. Resultado:\n\n" + resumen + "\nPreguntas:\n" + feedbackDetalle,
                 "Resultado",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information

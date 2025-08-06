@@ -43,11 +43,7 @@ namespace SistemaExamenes
 
             foreach (string unidad in unidades)
             {
-                var subunidades = todas
-                    .Where(p => p.Asignatura.Equals(asignatura, StringComparison.OrdinalIgnoreCase) &&
-                                p.Unidad.Equals(unidad, StringComparison.OrdinalIgnoreCase))
-                    .Select(p => p.SubUnidad)
-                    .Distinct();
+                var subunidades = todas.Where(p => p.Asignatura.Equals(asignatura, StringComparison.OrdinalIgnoreCase) && p.Unidad.Equals(unidad, StringComparison.OrdinalIgnoreCase)).Select(p => p.SubUnidad).Distinct();
 
                 foreach (var sub in subunidades)
                 {
@@ -96,7 +92,7 @@ namespace SistemaExamenes
                 numero++;
             }
 
-            //No permite valores nulos
+            //No permite valores nulos en el nombre de la carrera
             string carrera = txtCarrera.Text.Trim();
             if (string.IsNullOrWhiteSpace(carrera))
             {
@@ -104,8 +100,7 @@ namespace SistemaExamenes
                 return;
             }
 
-            /* Guardar en Examenes.txt
-            -Guid sirve para generar identificadores unicos. En este caso genera el codigo, lo convierte a string y 
+            /* -Guid sirve para generar identificadores unicos. En este caso genera el codigo, lo convierte a string y 
             con  Substring(0, 8) lo limita a 8 caracteres */
             string examenId = Guid.NewGuid().ToString().Substring(0, 8); lastExamenId = examenId;
             string universidad = txtUniversidad.Text.Trim();
@@ -119,7 +114,7 @@ namespace SistemaExamenes
                 return;
             }
 
-            File.AppendAllLines("Examenes.txt", new[] { linea });
+            File.AppendAllLines("Examenes.txt", new[] { linea }); // guarda en examenes.txt
 
             MessageBox.Show("Examen generado y guardado correctamente.");           
 
@@ -128,13 +123,7 @@ namespace SistemaExamenes
         private void Form3_Load(object sender, EventArgs e)
         {
             var todas = RepositorioPreguntas.ObtenerTodas();
-
-            var asignaturas = todas
-                .Select(p => p.Asignatura)
-                .Distinct()
-                .OrderBy(a => a)
-                .ToList();
-
+            var asignaturas = todas.Select(p => p.Asignatura).Distinct().OrderBy(a => a).ToList();
             cmbAsignatura.DataSource = asignaturas;
         }
 
@@ -143,6 +132,7 @@ namespace SistemaExamenes
         {
             //Se crea un objeto StringBuilder, que sirve para armar textos largos de forma eficiente
             var sb = new StringBuilder(); 
+
             // Se agregan los datos del encabezado del examen
             sb.AppendLine($"EXAMEN ID: {lastExamenId}");          
             sb.AppendLine($"Fecha: {dtpFecha.Value:yyyy-MM-dd}");
