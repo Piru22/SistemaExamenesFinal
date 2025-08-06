@@ -50,9 +50,7 @@ namespace SistemaExamenes
 
                 foreach (GroupBox groupBox in panelPreguntas.Controls.OfType<GroupBox>())
                 {
-                    seleccion = groupBox.Controls
-                        .OfType<RadioButton>()
-                        .FirstOrDefault(rb => rb.Tag?.ToString() == tag && rb.Checked);
+                    seleccion = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Tag?.ToString() == tag && rb.Checked);
 
                     if (seleccion != null)
                         break;
@@ -84,15 +82,10 @@ namespace SistemaExamenes
             string feedbackDetalle = string.Join("\n", feedback);
             string todo = resumen + feedbackDetalle + "\n--------------------------------------------------\n";
 
-            File.AppendAllText("Correcciones.txt", todo);
+            File.AppendAllText("Correcciones.txt", todo); 
 
             // Mostrar resumen y feedback detallado en el MessageBox
-            MessageBox.Show(
-                "Examen corregido. Resultado:\n\n" + resumen + "\nPreguntas:\n" + feedbackDetalle,
-                "Resultado",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            MessageBox.Show("Examen corregido. Resultado:\n\n" + resumen + "\nPreguntas:\n" + feedbackDetalle,"Resultado",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnGenerarExamen_Click(object sender, EventArgs e)

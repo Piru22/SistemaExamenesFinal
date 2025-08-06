@@ -47,11 +47,7 @@ namespace SistemaExamenes
 
                 foreach (var sub in subunidades)
                 {
-                    var preguntas = todas
-                        .Where(p => p.Asignatura.Equals(asignatura, StringComparison.OrdinalIgnoreCase) &&
-                                    p.Unidad.Equals(unidad, StringComparison.OrdinalIgnoreCase) &&
-                                    p.SubUnidad.Equals(sub, StringComparison.OrdinalIgnoreCase))
-                        .ToList();
+                    var preguntas = todas.Where(p => p.Asignatura.Equals(asignatura, StringComparison.OrdinalIgnoreCase) && p.Unidad.Equals(unidad, StringComparison.OrdinalIgnoreCase) &&p.SubUnidad.Equals(sub, StringComparison.OrdinalIgnoreCase)).ToList();
 
                     if (preguntas.Count > 0)
                     {

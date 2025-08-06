@@ -35,16 +35,16 @@ namespace SistemaExamenes
             if (preguntaIndex >= listaPreguntasCargadas.Count)
                 return;
 
-            // Sólo rellenamos cuando haces clic en la línea de pregunta (0)
-            // o en cualquiera de sus 4 opciones (1–4). Si haces clic en la 5 (blanco) salimos.
+            // Splo rellenamos cuando haces clic en la línea de pregunta (0)
+            // o en cualquiera de sus 4 opciones (1–4). Si haces clic en la 5 (blanco) salimos
             int lineaDentro = index % 6;
             if (lineaDentro == 5)
                 return;
 
-            // Traemos la pregunta correspondiente
+            // traemos la pregunta correspondiente
             preguntaSeleccionada = listaPreguntasCargadas[preguntaIndex];
 
-            // La mostramos en los TextBox
+            // la mostramos en los TextBox
             txtPregunta.Text = preguntaSeleccionada.Texto;
             txtResp1.Text = preguntaSeleccionada.Opciones[0];
             txtResp2.Text = preguntaSeleccionada.Opciones[1];
@@ -55,29 +55,27 @@ namespace SistemaExamenes
             txtSubunidad.Text = preguntaSeleccionada.SubUnidad;
         }
 
-        private void BuscarPorUnidad(string unidad)
+        private void BuscarPorUnidad(string unidad) // muestra solo las preg q tengan esas unidad
         {
-            lstContenido.Items.Clear();
-            listaPreguntasCargadas = RepositorioPreguntas.ObtenerTodas()
-                .Where(p => p.Unidad.Equals(unidad, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            lstContenido.Items.Clear(); // borra la lista para llenarla desde 0
+            listaPreguntasCargadas = RepositorioPreguntas.ObtenerTodas().Where(p => p.Unidad.Equals(unidad, StringComparison.OrdinalIgnoreCase)).ToList(); // filtra las preg x unid
 
             foreach (var pregunta in listaPreguntasCargadas)
             {
-                lstContenido.Items.Add($"[{pregunta.PreguntaId}] {pregunta.Texto}");
+                lstContenido.Items.Add($"[{pregunta.PreguntaId}] {pregunta.Texto}"); // agrega la preg con id a su lista
 
                 char letra = 'A';
                 foreach (var opcion in pregunta.Opciones)
                 {
-                    lstContenido.Items.Add($"   {letra}) {opcion}");
+                    lstContenido.Items.Add($"   {letra}) {opcion}"); 
                     letra++;
                 }
 
-                lstContenido.Items.Add("");
+                lstContenido.Items.Add(""); 
             }
         }
 
-        private void btnAgregarPreg_Click(object sender, EventArgs e)
+        private void btnAgregarPreg_Click(object sender, EventArgs e) // crea una nueva preg con lo q cargamos
         {
             var pregunta = new Pregunta
             {
@@ -93,7 +91,7 @@ namespace SistemaExamenes
             CargarPreguntas();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e) // modifica una preg ya cargada
         {
             if (preguntaSeleccionada == null)
             {
@@ -114,27 +112,7 @@ namespace SistemaExamenes
             preguntaSeleccionada = null;
         }
 
-        private void CargarPreguntas()
-        {
-            lstContenido.Items.Clear();
-            listaPreguntasCargadas = RepositorioPreguntas.ObtenerTodas();
-
-            foreach (var pregunta in listaPreguntasCargadas)
-            {
-                lstContenido.Items.Add($"[{pregunta.PreguntaId}] {pregunta.Texto}");
-
-                char letra = 'A';
-                foreach (var opcion in pregunta.Opciones)
-                {
-                    lstContenido.Items.Add($"   {letra}) {opcion}");
-                    letra++;
-                }
-
-                lstContenido.Items.Add(""); // línea en blanco para separar
-            }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e) // elimina la preg que seleccionamos
         {
             if (preguntaSeleccionada == null)
             {
@@ -153,7 +131,7 @@ namespace SistemaExamenes
                 LimpiarCampos();
             }
         }
-        private void LimpiarCampos()
+        private void LimpiarCampos() // vacia los campos de texto
         {
             txtPregunta.Clear();
             txtResp1.Clear();
@@ -165,7 +143,27 @@ namespace SistemaExamenes
             txtSubunidad.Clear();
         }
 
-        private void btnUnidad_Click(object sender, EventArgs e)
+        private void CargarPreguntas()
+        {
+            lstContenido.Items.Clear();
+            listaPreguntasCargadas = RepositorioPreguntas.ObtenerTodas();
+
+            foreach (var pregunta in listaPreguntasCargadas)
+            {
+                lstContenido.Items.Add($"[{pregunta.PreguntaId}] {pregunta.Texto}");
+
+                char letra = 'A';
+                foreach (var opcion in pregunta.Opciones)
+                {
+                    lstContenido.Items.Add($"   {letra}) {opcion}");
+                    letra++;
+                }
+
+                lstContenido.Items.Add(""); 
+            }
+        }
+
+        private void btnUnidad_Click(object sender, EventArgs e) // filtra las preg cargadas por unidad 
         {
             string unidad = txtUnidad.Text.Trim();
 
