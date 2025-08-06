@@ -13,8 +13,8 @@ namespace SistemaExamenes
 {
     public partial class Form2 : Form
     {
-        private List<Pregunta> listaPreguntasCargadas = new List<Pregunta>();
-        private Pregunta preguntaSeleccionada;
+        private List<Pregunta> listaPreguntasCargadas = new List<Pregunta>();//guarda las preg cargadas desde el archivo
+        private Pregunta preguntaSeleccionada;//guarda la preg q seleccionas para modif o eliminar
 
         public Form2()
         {
@@ -22,6 +22,8 @@ namespace SistemaExamenes
             CargarPreguntas();
             lstContenido.SelectedIndexChanged += lstContenido_SelectedIndexChanged;
         }
+
+        // guarda algo seleccionado en alguna linea o sale del metodo
         private void lstContenido_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = lstContenido.SelectedIndex;

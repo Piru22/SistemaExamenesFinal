@@ -19,6 +19,7 @@ namespace SistemaExamenes
             InitializeComponent();
         }
 
+        // btn Generar Examen
         private void btnGestionarExamen_Click(object sender, EventArgs e)
         {
             string asignatura = cmbAsignatura.Text.Trim();
@@ -35,6 +36,7 @@ namespace SistemaExamenes
                 return;
             }
 
+            // HashSet es una estructura de datos que nos permite ingresar valores sin duplicados.
             var todas = RepositorioPreguntas.ObtenerTodas();
             List<Pregunta> preguntasExamen = new List<Pregunta>();
             HashSet<int> idsIncluidos = new HashSet<int>();
@@ -102,9 +104,10 @@ namespace SistemaExamenes
                 return;
             }
 
-            // Guardar en Examenes.txt
-            string examenId = Guid.NewGuid().ToString().Substring(0, 8);
-            lastExamenId = examenId;
+            /* Guardar en Examenes.txt
+            -Guid sirve para generar identificadores unicos. En este caso genera el codigo, lo convierte a string y 
+            con  Substring(0, 8) lo limita a 8 caracteres */
+            string examenId = Guid.NewGuid().ToString().Substring(0, 8); lastExamenId = examenId;
             string universidad = txtUniversidad.Text.Trim();
             string fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
             string ids = string.Join(",", preguntasExamen.Select(p => p.PreguntaId));
@@ -135,10 +138,13 @@ namespace SistemaExamenes
             cmbAsignatura.DataSource = asignaturas;
         }
 
+        // tiene como objetivo crear un archivo de texto que contenga el examen generado y luego abrirlo con un bloc de notas
         private void btnImprimirExamen_Click(object sender, EventArgs e)
         {
-            var sb = new StringBuilder();
-            sb.AppendLine($"EXAMEN ID: {lastExamenId}");           // (ver paso 2)
+            //Se crea un objeto StringBuilder, que sirve para armar textos largos de forma eficiente
+            var sb = new StringBuilder(); 
+            // Se agregan los datos del encabezado del examen
+            sb.AppendLine($"EXAMEN ID: {lastExamenId}");          
             sb.AppendLine($"Fecha: {dtpFecha.Value:yyyy-MM-dd}");
             sb.AppendLine($"Universidad: {txtUniversidad.Text}");
             sb.AppendLine($"Carrera:     {txtCarrera.Text}");
@@ -146,12 +152,13 @@ namespace SistemaExamenes
             sb.AppendLine(new string('-', 50));
             sb.AppendLine();
 
-            // Añadimos **tal cual** el contenido que ya vimos en pantalla
+            /* copia todo el contenido visible en el RichTextBox que ya tenia cargadas las preguntas y respuestas
+            y tal como se muestran en pantalla se agregan al archivo final */
             sb.Append(rtbExamen.Text);
 
-            File.WriteAllText("ImpresionExamen.txt", sb.ToString());
+            File.WriteAllText("ImpresionExamen.txt", sb.ToString()); // crea el txt y guarda el texto generado hasta el momento
             MessageBox.Show("Se generó el archivo ImpresionExamen.txt correctamente.");
-            System.Diagnostics.Process.Start("notepad.exe", "ImpresionExamen.txt");
+            System.Diagnostics.Process.Start("notepad.exe", "ImpresionExamen.txt"); // abre automaticamente el bloc de notas
         }
     }
 }

@@ -22,6 +22,7 @@ namespace SistemaExamenes
 
         }
 
+        //  Conexiones entre formularios
         private void btnPreguntas_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();

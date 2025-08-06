@@ -55,7 +55,7 @@
             // txtPregunta
             // 
             this.txtPregunta.Location = new System.Drawing.Point(117, 21);
-            this.txtPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPregunta.Margin = new System.Windows.Forms.Padding(4);
             this.txtPregunta.Name = "txtPregunta";
             this.txtPregunta.Size = new System.Drawing.Size(600, 22);
             this.txtPregunta.TabIndex = 65;
@@ -74,7 +74,7 @@
             // txtResp1
             // 
             this.txtResp1.Location = new System.Drawing.Point(117, 76);
-            this.txtResp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtResp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtResp1.Name = "txtResp1";
             this.txtResp1.Size = new System.Drawing.Size(600, 22);
             this.txtResp1.TabIndex = 63;
@@ -93,7 +93,7 @@
             // txtResp2
             // 
             this.txtResp2.Location = new System.Drawing.Point(117, 108);
-            this.txtResp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtResp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtResp2.Name = "txtResp2";
             this.txtResp2.Size = new System.Drawing.Size(600, 22);
             this.txtResp2.TabIndex = 61;
@@ -112,7 +112,7 @@
             // txtResp3
             // 
             this.txtResp3.Location = new System.Drawing.Point(117, 140);
-            this.txtResp3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtResp3.Margin = new System.Windows.Forms.Padding(4);
             this.txtResp3.Name = "txtResp3";
             this.txtResp3.Size = new System.Drawing.Size(600, 22);
             this.txtResp3.TabIndex = 59;
@@ -131,7 +131,7 @@
             // txtSubunidad
             // 
             this.txtSubunidad.Location = new System.Drawing.Point(103, 321);
-            this.txtSubunidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubunidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubunidad.Name = "txtSubunidad";
             this.txtSubunidad.Size = new System.Drawing.Size(196, 22);
             this.txtSubunidad.TabIndex = 57;
@@ -150,7 +150,7 @@
             // txtUnidad
             // 
             this.txtUnidad.Location = new System.Drawing.Point(103, 281);
-            this.txtUnidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnidad.Name = "txtUnidad";
             this.txtUnidad.Size = new System.Drawing.Size(196, 22);
             this.txtUnidad.TabIndex = 55;
@@ -169,7 +169,7 @@
             // txtAsignatura
             // 
             this.txtAsignatura.Location = new System.Drawing.Point(103, 242);
-            this.txtAsignatura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAsignatura.Margin = new System.Windows.Forms.Padding(4);
             this.txtAsignatura.Name = "txtAsignatura";
             this.txtAsignatura.Size = new System.Drawing.Size(196, 22);
             this.txtAsignatura.TabIndex = 53;
@@ -201,7 +201,7 @@
             this.btnUnidad.BackColor = System.Drawing.Color.Azure;
             this.btnUnidad.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnUnidad.Location = new System.Drawing.Point(103, 551);
-            this.btnUnidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUnidad.Margin = new System.Windows.Forms.Padding(4);
             this.btnUnidad.Name = "btnUnidad";
             this.btnUnidad.Size = new System.Drawing.Size(200, 41);
             this.btnUnidad.TabIndex = 50;
@@ -214,7 +214,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Azure;
             this.btnEliminar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnEliminar.Location = new System.Drawing.Point(103, 503);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(200, 41);
             this.btnEliminar.TabIndex = 49;
@@ -227,7 +227,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.Azure;
             this.btnModificar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnModificar.Location = new System.Drawing.Point(103, 455);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(200, 41);
             this.btnModificar.TabIndex = 48;
@@ -240,7 +240,7 @@
             this.btnAgregarPreg.BackColor = System.Drawing.Color.Azure;
             this.btnAgregarPreg.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnAgregarPreg.Location = new System.Drawing.Point(103, 407);
-            this.btnAgregarPreg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarPreg.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarPreg.Name = "btnAgregarPreg";
             this.btnAgregarPreg.Size = new System.Drawing.Size(200, 41);
             this.btnAgregarPreg.TabIndex = 47;
@@ -253,7 +253,7 @@
             this.lstContenido.FormattingEnabled = true;
             this.lstContenido.ItemHeight = 16;
             this.lstContenido.Location = new System.Drawing.Point(324, 242);
-            this.lstContenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstContenido.Margin = new System.Windows.Forms.Padding(4);
             this.lstContenido.Name = "lstContenido";
             this.lstContenido.Size = new System.Drawing.Size(589, 372);
             this.lstContenido.TabIndex = 46;
@@ -261,7 +261,7 @@
             // txtRespCorrecta
             // 
             this.txtRespCorrecta.Location = new System.Drawing.Point(117, 172);
-            this.txtRespCorrecta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRespCorrecta.Margin = new System.Windows.Forms.Padding(4);
             this.txtRespCorrecta.Name = "txtRespCorrecta";
             this.txtRespCorrecta.Size = new System.Drawing.Size(600, 22);
             this.txtRespCorrecta.TabIndex = 45;
@@ -304,7 +304,7 @@
             this.Controls.Add(this.lstContenido);
             this.Controls.Add(this.txtRespCorrecta);
             this.Controls.Add(this.label9);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Gestionar Preguntas";
             this.ResumeLayout(false);
